@@ -1,1 +1,0 @@
-https://plugins.jetbrains.com/api/plugins/17501
