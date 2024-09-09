@@ -1,21 +1,18 @@
 # Java Perf Tools and IDEA Plugin DevKit Helper
 
-This repo contains mainly two parts:
+This repo contains a graphical tool for monitoring the HotSpot Garbage Collector, Compiler, and class loader. It can monitor both local and remote JVMs.
 
-## A. Visual Garbage Collection Monitoring Tool and JConsole performance tool
+## Visual Garbage Collection Monitoring Tool: visualgc_idea
+  You can build this project into a standalone runnable VisualGC JAR file OR an IDEA plugin with VisualGC embed.
+  Currently, some fake class files have been added to enable building a standalone runnable JAR.
+  If you want to build it as an IDEA plugin, simply delete all the code from the [commit 24ad36f](../../commit/24ad36fe74fa5a0ffe3b6f25d6589287ea9ff347) and then introduce the IDEA Plugin SDK to build it.
 
-a graphical tool for monitoring the HotSpot Garbage Collector, Compiler, and class loader. It can monitor both local and remote JVMs.
-1. visualgc_fix
-   minimal fix with original visualgc code to run under Java 8.
-2. visualgc_java8
-   Fix visualgc to run and add more gc details.
-3. visualgc_idea
-   A IDEA plugin with visualgc embed.
-4. _JDKThreadCPU
-   a JConsole plugin that displays the most active threads of the (Java) application being monitored by JConsole.
+## Runtime environment
+  The runtime environment requires JDK 17 or higher.
+  You can use the following commands to run it:
+```
+"%JAVA_HOME%\bin\java" --add-exports jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED --add-exports jdk.internal.jvmstat/sun.jvmstat.monitor.event=ALL-UNNAMED --add-exports jdk.jstatd/sun.jvmstat.perfdata.monitor.protocol.rmi=ALL-UNNAMED -cp "%JAVA_HOME%\lib\tools.jar";.\visualgc_idea.jar com.sun.jvmstat.tools.visualgc.VisualGCPane
+```
 
-## B. An IDEA Plugin DevKit Helper
-
-This plugin will provides some feature on IDEA Plugin DevKit. The 1.0 only provides a small function that when
-you editing plugin.xml, the HTML content in description and change-notes will be treated as HTML so syntax highlighting
-and tag completion will work.
+## Tips
+  If you find that a certain Java process does not appear in the interface for selection, it may be due to insufficient permissions for VisualGC, which can prevent it from recognizing information about higher-privileged Java processes.
