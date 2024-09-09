@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Kotlin2JsCompilerArguments">
+    <option name="moduleKind" value="plain" />
+  </component>
+  <component name="Kotlin2JvmCompilerArguments">
+    <option name="jvmTarget" value="1.8" />
+  </component>
+  <component name="KotlinCommonCompilerArguments">
+    <option name="apiVersion" value="1.9" />
+    <option name="languageVersion" value="1.9" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id>Groovy</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Kotlin</id>
+          </State>
+          <State>
+            <id>内存Java</id>
+          </State>
+          <State>
+            <id>样式问题Kotlin</id>
+          </State>
+          <State>
+            <id>线程问题Groovy</id>
+          </State>
+          <State>
+            <id>线程问题Java</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>用户定义</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jdk17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

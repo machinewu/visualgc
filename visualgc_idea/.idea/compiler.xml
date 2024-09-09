@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="BUILD_PROCESS_HEAP_SIZE" value="256" />
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/src/com/beansoft" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/src/com/github/beansoft/idea" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/src/com/github/beansoft/jvm/executor" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/src/com/github/beansoft/jvm/action" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/src/com/github/beansoft/jvm/jprofiler" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/src/com/github/beansoft/jvm/runner" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/src/icons" includeSubdirectories="true" />
+      <file url="file://$PROJECT_DIR$/src/com/github/beansoft/jvm/integration/VisualGCConsoleActionsPostProcessor.java" />
+      <file url="file://$PROJECT_DIR$/src/com/github/beansoft/jvm/integration/VisualGCJavaProgramPatcher.java" />
+      <file url="file://$PROJECT_DIR$/src/com/github/beansoft/jvm/Donate.java" />
+      <file url="file://$PROJECT_DIR$/src/com/github/beansoft/jvm/MyConfigurable.java" />
+      <file url="file://$PROJECT_DIR$/src/com/github/beansoft/jvm/SettingsDialog.form" />
+      <file url="file://$PROJECT_DIR$/src/com/github/beansoft/jvm/SettingsDialog.java" />
+      <file url="file://$PROJECT_DIR$/src/com/github/beansoft/visualgc/idea/VisualGCToolWindowFactory.java" />
+    </excludeFromCompile>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="visualgc_idea" options="--add-exports jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED --add-exports jdk.internal.jvmstat/sun.jvmstat.monitor.event=ALL-UNNAMED --add-modules java.desktop,java.logging --add-exports jdk.jstatd/sun.jvmstat.perfdata.monitor.protocol.rmi=ALL-UNNAMED" />
+    </option>
+  </component>
+</project>

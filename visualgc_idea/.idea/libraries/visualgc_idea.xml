@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="visualgc_idea">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/visualgc_idea.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
