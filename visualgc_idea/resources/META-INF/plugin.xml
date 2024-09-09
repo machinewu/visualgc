@@ -92,9 +92,6 @@
             icon="AllIcons.Actions.MoveToWindow">
       <add-to-group group-id="ToolsMenu" anchor="last"/>
     </action>
-
-    <action id="visualgc.MakeCoffeeAction" class="com.github.beansoft.visualgc.idea.MakeCoffeeAction" icon="/images/mug.png">
-    </action>
   </actions>
 
 </idea-plugin>

@@ -46,7 +46,6 @@ public class VisualGCToolWindowFactory implements ToolWindowFactory, DumbAware {
     // Actions at toolbar left
     ex.setTabActions(
             actionManager.getAction("VisualGCNewWindow"),
-            actionManager.getAction("visualgc.MakeCoffeeAction"),
             new SettingsAction());
   }
 

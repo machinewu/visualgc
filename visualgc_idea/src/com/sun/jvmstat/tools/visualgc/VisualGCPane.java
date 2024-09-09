@@ -1,10 +1,8 @@
 package com.sun.jvmstat.tools.visualgc;
 
 import beansoft.swing.OptionPane;
-import com.beansoft.lic.CheckLicense;
 import com.github.beansoft.jvm.ApplicationSettingsService;
 import com.github.beansoft.jvm.PluginSettings;
-import com.github.beansoft.visualgc.idea.MakeCoffeeAction;
 import com.intellij.CommonBundle;
 import com.intellij.ide.BrowserUtil;
 import com.intellij.ide.HelpTooltip;
@@ -378,10 +376,6 @@ public class VisualGCPane implements ActionListener {
                 GCSample gcsample = new GCSample(testModel);
                 this.histogramSupported = gcsample.ageTableSizes != null;
                 this.model = testModel;
-                // ZGC 的支持需要付费
-                if (testModel.isZgc() && !checkLic()) {
-                    return false;
-                }
                 terminated = false;
                 return true;
             }
@@ -395,24 +389,6 @@ public class VisualGCPane implements ActionListener {
         if (monitoredVm != null)
             monitoredVm.detach();
         return false;
-    }
-
-    private boolean checkLic() {
-        final Boolean isLicensed = CheckLicense.isLicensed();
-        if (Boolean.FALSE.equals(isLicensed)) {
-            final String message = Res.getString("unlock.hint.msg");
-//          JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), message, TITLE, JOptionPane.INFORMATION_MESSAGE);
-            boolean sureReg = Messages.showYesNoDialog(myProject, message, MakeCoffeeAction.TITLE, CommonBundle.getContinueButtonText(), CommonBundle.getCancelButtonText(),
-                    Messages.getQuestionIcon()) ==
-                    Messages.YES;
-            if (sureReg) {
-                CheckLicense.requestLicense("Please consider register our plugin to make a donation and unlock the ZGC support!");
-            } else {
-                Messages.showInfoMessage(Res.getString("unreg.msg"), MakeCoffeeAction.TITLE);
-            }
-        }
-
-        return Boolean.TRUE.equals(isLicensed);
     }
 
     private MonitoredVm getMonitoredVm() throws MonitorException {
@@ -547,13 +523,6 @@ public class VisualGCPane implements ActionListener {
                         pName = val;
 
                         String processInput = val.substring(0, val.indexOf(' '));
-                        // 远程JVM监控, 必须注册才能用
-                        if(processInput.contains("@")) {
-                            if(!checkLic()) {
-                                return;
-                            }
-                        }
-
                         startMonitor(processInput);
 //              psListModel.stop();
                         contentPane.removeAll();
@@ -1199,7 +1168,8 @@ public class VisualGCPane implements ActionListener {
                         createdByLink.addHyperlinkListener((e) -> {
                             JBTextField textField = new JBTextField(
                                     "--add-exports=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED\n" +
-                                            "--add-exports=jdk.internal.jvmstat/sun.jvmstat.monitor.event=ALL-UNNAMED");
+                                    "--add-exports=jdk.internal.jvmstat/sun.jvmstat.monitor.event=ALL-UNNAMED\n" +
+                                    "--add-exports=jdk.internal.jvmstat/sun.jvmstat.perfdata.monitor=ALL-UNNAMED");
 
                             Messages.showTextAreaDialog(textField, Res.getString("dialog.title.please.edit.file.restart.ide"), "visualgc.input");
                             AnAction action = ActionManager.getInstance().getAction("EditCustomVmOptions");
